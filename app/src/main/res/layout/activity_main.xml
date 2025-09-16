@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_light_background">
+
+    <!-- Top App Bar (optional) -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:title="Schedule AI"
+        app:titleTextColor="@color/md_theme_light_onPrimary"
+        app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:paddingTop="0dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
+
+            <!-- Input Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="16dp"
+                app:strokeColor="@color/md_theme_light_outline"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/md_theme_light_surface">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="18dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/inputLayout"
+                        style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Кажете или внесете команда"
+                        app:boxBackgroundMode="filled"
+                        app:boxCornerRadiusTopStart="14dp"
+                        app:boxCornerRadiusTopEnd="14dp"
+                        app:boxCornerRadiusBottomStart="14dp"
+                        app:boxCornerRadiusBottomEnd="14dp"
+                        app:boxBackgroundColor="@color/md_theme_light_surfaceVariant"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@id/micButton"
+                        android:layout_alignParentTop="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/inputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/md_theme_light_onSurface"
+                            android:textSize="18sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/micButton"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        app:srcCompat="@drawable/ic_mic"
+                        app:tint="@color/md_theme_light_onPrimary"
+                        app:backgroundTint="@color/md_theme_light_primary"
+                        android:contentDescription="Говорно внесување" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Actions Row -->
+            <LinearLayout
+                android:id="@+id/actionsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="20dp"
+                android:weightSum="3"
+                android:layout_marginTop="0dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSummarize"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="Сумирај"
+                    app:icon="@drawable/ic_summarize"
+                    app:iconTint="@color/md_theme_light_primary"
+                    app:iconGravity="textStart"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:textColor="@color/md_theme_light_primary"
+                    android:layout_marginEnd="8dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddToCalendar"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="Календар"
+                    app:icon="@drawable/ic_calendar"
+                    app:iconTint="@color/md_theme_light_primary"
+                    app:iconGravity="textStart"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:textColor="@color/md_theme_light_primary"
+                    android:layout_marginEnd="8dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShare"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="Сподели"
+                    app:icon="@drawable/ic_share"
+                    app:iconTint="@color/md_theme_light_primary"
+                    app:iconGravity="textStart"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:textColor="@color/md_theme_light_primary"/>
+            </LinearLayout>
+
+            <!-- Results Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="0dp"
+                app:cardBackgroundColor="@color/md_theme_light_surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_transcription"
+                            android:tint="@color/md_theme_light_primary"/>
+
+                        <TextView
+                            android:id="@+id/tvTranscription"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Транскрипција ќе се појави тука"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                            android:paddingStart="12dp"
+                            android:textColor="@color/md_theme_light_onSurface"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:background="@android:color/transparent" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_summarize"
+                            android:tint="@color/md_theme_light_primary"/>
+
+                        <TextView
+                            android:id="@+id/tvSummary"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Сумирањето ќе се појави тука"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                            android:paddingStart="12dp"
+                            android:textColor="@color/md_theme_light_onSurface"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

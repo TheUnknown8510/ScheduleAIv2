@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Schedule</string>
+    <string name="record">Record</string>
+    <string name="summarize">Summarize</string>
+    <string name="add_to_calendar">Add to Calendar</string>
+    <string name="share">Share</string>
+    <string name="transcription">Transcription:</string>
+    <string name="summary">Summary:</string>
+</resources>
