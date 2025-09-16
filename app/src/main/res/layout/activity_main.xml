@@ -4,18 +4,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_theme_light_background">
+    android:background="?attr/colorSurface">
 
-    <!-- Top App Bar (optional) -->
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/topAppBar"
+    <!-- Large Top App Bar with Material 3 styling -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        app:title="Schedule AI"
-        app:titleTextColor="@color/md_theme_light_onPrimary"
-        app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge"/>
+        android:elevation="2dp"
+        app:elevation="2dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorSurface"
+            app:title="Schedule AI"
+            app:titleTextColor="?attr/colorOnSurface"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -28,182 +38,192 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp"
+            android:padding="32dp"
             android:gravity="center_horizontal">
 
-            <!-- Input Card -->
+            <!-- Input Card with modern Material 3 styling -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="6dp"
-                android:layout_marginTop="28dp"
-                android:layout_marginBottom="16dp"
-                app:strokeColor="@color/md_theme_light_outline"
-                app:strokeWidth="1dp"
-                app:cardBackgroundColor="@color/md_theme_light_surface">
+                app:cardCornerRadius="28dp"
+                app:cardElevation="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                app:strokeColor="?attr/colorOutline"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="?attr/colorSurfaceVariant">
 
-                <RelativeLayout
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputLayout"
+                    style="@style/Widget.Material3.TextInputLayout.FilledBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="18dp">
+                    android:hint="Кажете или внесете команда"
+                    app:boxBackgroundMode="none"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/ic_mic"
+                    app:endIconTint="?attr/colorPrimary"
+                    app:endIconContentDescription="Говорно внесување"
+                    android:layout_margin="24dp">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/inputLayout"
-                        style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Кажете или внесете команда"
-                        app:boxBackgroundMode="filled"
-                        app:boxCornerRadiusTopStart="14dp"
-                        app:boxCornerRadiusTopEnd="14dp"
-                        app:boxCornerRadiusBottomStart="14dp"
-                        app:boxCornerRadiusBottomEnd="14dp"
-                        app:boxBackgroundColor="@color/md_theme_light_surfaceVariant"
-                        android:layout_alignParentStart="true"
-                        android:layout_toStartOf="@id/micButton"
-                        android:layout_alignParentTop="true">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/inputEditText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/md_theme_light_onSurface"
-                            android:textSize="18sp"/>
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/micButton"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        app:srcCompat="@drawable/ic_mic"
-                        app:tint="@color/md_theme_light_onPrimary"
-                        app:backgroundTint="@color/md_theme_light_primary"
-                        android:contentDescription="Говорно внесување" />
-                </RelativeLayout>
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="20sp"
+                        android:minHeight="64dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Actions Row -->
+            <!-- Actions Row with Material 3 buttons -->
             <LinearLayout
                 android:id="@+id/actionsLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="32dp"
                 android:weightSum="3"
                 android:layout_marginTop="0dp">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSummarize"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
+                    android:layout_height="56dp"
                     android:layout_weight="1"
                     android:text="Сумирај"
                     app:icon="@drawable/ic_summarize"
-                    app:iconTint="@color/md_theme_light_primary"
+                    app:iconSize="24dp"
                     app:iconGravity="textStart"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
-                    android:textColor="@color/md_theme_light_primary"
-                    android:layout_marginEnd="8dp"/>
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    app:cornerRadius="28dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="16sp"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAddToCalendar"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
+                    android:layout_height="56dp"
                     android:layout_weight="1"
                     android:text="Календар"
                     app:icon="@drawable/ic_calendar"
-                    app:iconTint="@color/md_theme_light_primary"
+                    app:iconSize="24dp"
                     app:iconGravity="textStart"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
-                    android:textColor="@color/md_theme_light_primary"
-                    android:layout_marginEnd="8dp"/>
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    app:cornerRadius="28dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="16sp"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnShare"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
+                    android:layout_height="56dp"
                     android:layout_weight="1"
                     android:text="Сподели"
                     app:icon="@drawable/ic_share"
-                    app:iconTint="@color/md_theme_light_primary"
+                    app:iconSize="24dp"
                     app:iconGravity="textStart"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
-                    android:textColor="@color/md_theme_light_primary"/>
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    app:cornerRadius="28dp"
+                    android:textSize="16sp"/>
             </LinearLayout>
 
-            <!-- Results Card -->
+            <!-- Results Card with enhanced Material 3 styling -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="0dp"
-                app:cardBackgroundColor="@color/md_theme_light_surface">
+                app:cardCornerRadius="24dp"
+                app:cardElevation="6dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                app:cardBackgroundColor="?attr/colorSurface">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="32dp">
 
+                    <!-- Transcription Section -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
                             android:src="@drawable/ic_transcription"
-                            android:tint="@color/md_theme_light_primary"/>
+                            android:tint="?attr/colorPrimary"/>
 
                         <TextView
-                            android:id="@+id/tvTranscription"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Транскрипција ќе се појави тука"
-                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-                            android:paddingStart="12dp"
-                            android:textColor="@color/md_theme_light_onSurface"/>
+                            android:text="Транскрипција"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                            android:paddingStart="16dp"
+                            android:textColor="?attr/colorOnSurface"/>
                     </LinearLayout>
 
+                    <TextView
+                        android:id="@+id/tvTranscription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Транскрипција ќе се појави тука"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                        android:paddingStart="44dp"
+                        android:paddingEnd="16dp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:lineSpacingExtra="4dp"
+                        android:layout_marginBottom="24dp"/>
+
+                    <!-- Divider -->
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="10dp"
-                        android:background="@android:color/transparent" />
+                        android:layout_height="1dp"
+                        android:background="?attr/colorOutlineVariant"
+                        android:layout_marginBottom="24dp" />
 
+                    <!-- Summary Section -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
                             android:src="@drawable/ic_summarize"
-                            android:tint="@color/md_theme_light_primary"/>
+                            android:tint="?attr/colorPrimary"/>
 
                         <TextView
-                            android:id="@+id/tvSummary"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Сумирањето ќе се појави тука"
-                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-                            android:paddingStart="12dp"
-                            android:textColor="@color/md_theme_light_onSurface"/>
+                            android:text="Сумирање"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                            android:paddingStart="16dp"
+                            android:textColor="?attr/colorOnSurface"/>
                     </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvSummary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Сумирањето ќе се појави тука"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                        android:paddingStart="44dp"
+                        android:paddingEnd="16dp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:lineSpacingExtra="4dp"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
