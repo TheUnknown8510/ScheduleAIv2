@@ -18,10 +18,9 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.text.SimpleDateFormat
 import java.util.*
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var micButton: FloatingActionButton
+    private lateinit var inputLayout: TextInputLayout
     private lateinit var btnSummarize: MaterialButton
     private lateinit var btnAddToCalendar: MaterialButton
     private lateinit var btnShare: MaterialButton
@@ -56,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Modern UI: find views
-        micButton = findViewById<FloatingActionButton>(R.id.micButton)
+        inputLayout = findViewById(R.id.inputLayout)
         btnSummarize = findViewById(R.id.btnSummarize)
         btnAddToCalendar = findViewById(R.id.btnAddToCalendar)
         btnShare = findViewById(R.id.btnShare)
@@ -64,8 +63,8 @@ class MainActivity : AppCompatActivity() {
         tvTranscription = findViewById(R.id.tvTranscription)
         tvSummary = findViewById(R.id.tvSummary)
 
-        // Voice button triggers speech-to-text
-        micButton.setOnClickListener { startSpeechToText() }
+        // Set up mic button as end icon click listener
+        inputLayout.setEndIconOnClickListener { startSpeechToText() }
         btnSummarize.setOnClickListener { summarizeText() }
         btnAddToCalendar.setOnClickListener {
             val input = inputEditText.text?.toString()?.takeIf { it.isNotBlank() } ?: lastTranscription
