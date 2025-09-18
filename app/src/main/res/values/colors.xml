@@ -1,4 +1,18 @@
 <resources>
+    <!-- Samsung-inspired color scheme -->
+    <color name="samsung_blue">#FF1976D2</color>
+    <color name="samsung_blue_dark">#FF0D47A1</color>
+    <color name="samsung_dark_bg">#FF1C1C1E</color>
+    <color name="samsung_dark_surface">#FF2A2A2E</color>
+    <color name="samsung_dark_surface_variant">#FF3A3A3C</color>
+    <color name="samsung_white">#FFFFFFFF</color>
+    <color name="samsung_gray_light">#FFB0BEC5</color>
+    <color name="samsung_gray">#FF78909C</color>
+    
+    <!-- Bottom navigation colors -->
+    <color name="bottom_nav_item_color">@color/bottom_nav_item_selector</color>
+    
+    <!-- Material Design colors (existing) -->
     <color name="md_theme_light_primary">#6750A4</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>
     <color name="md_theme_light_secondary">#D0BCFF</color>
