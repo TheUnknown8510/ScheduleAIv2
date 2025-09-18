@@ -1,13 +1,26 @@
 <resources>
-    <color name="md_theme_light_primary">#6750A4</color>
+    <!-- Samsung-inspired color palette -->
+    <color name="samsung_blue">#1976D2</color>
+    <color name="samsung_green">#4CAF50</color>
+    <color name="samsung_purple">#9C27B0</color>
+    
+    <!-- Light theme colors -->
+    <color name="samsung_background">#F8F9FA</color>
+    <color name="samsung_surface">#FFFFFF</color>
+    <color name="samsung_surface_variant">#F5F5F5</color>
+    <color name="samsung_on_surface">#212121</color>
+    <color name="samsung_on_surface_variant">#757575</color>
+    
+    <!-- Material Design theme colors (Samsung-inspired) -->
+    <color name="md_theme_light_primary">#1976D2</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>
-    <color name="md_theme_light_secondary">#D0BCFF</color>
-    <color name="md_theme_light_onSecondary">#381E72</color>
-    <color name="md_theme_light_background">#F8F8FF</color>
+    <color name="md_theme_light_secondary">#4CAF50</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_background">#F8F9FA</color>
     <color name="md_theme_light_surface">#FFFFFF</color>
-    <color name="md_theme_light_surfaceVariant">#F3EDF7</color>
-    <color name="md_theme_light_onBackground">#1C1B1F</color>
-    <color name="md_theme_light_onSurface">#1C1B1F</color>
-    <color name="md_theme_light_error">#B3261E</color>
-    <color name="md_theme_light_outline">#79747E</color>
+    <color name="md_theme_light_surfaceVariant">#F5F5F5</color>
+    <color name="md_theme_light_onBackground">#212121</color>
+    <color name="md_theme_light_onSurface">#212121</color>
+    <color name="md_theme_light_error">#F44336</color>
+    <color name="md_theme_light_outline">#E0E0E0</color>
 </resources>
