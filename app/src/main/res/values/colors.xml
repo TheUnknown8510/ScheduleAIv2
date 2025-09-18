@@ -10,6 +10,7 @@
     <color name="samsung_surface_variant">#F5F5F5</color>
     <color name="samsung_on_surface">#212121</color>
     <color name="samsung_on_surface_variant">#757575</color>
+    <color name="samsung_outline">#E0E0E0</color>
     
     <!-- Material Design theme colors (Samsung-inspired) -->
     <color name="md_theme_light_primary">#1976D2</color>
