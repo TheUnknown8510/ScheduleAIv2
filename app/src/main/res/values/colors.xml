@@ -10,4 +10,13 @@
     <color name="md_theme_light_onSurface">#1C1B1F</color>
     <color name="md_theme_light_error">#B3261E</color>
     <color name="md_theme_light_outline">#79747E</color>
+    
+    <!-- Samsung-inspired colors -->
+    <color name="samsung_primary">#1976D2</color>
+    <color name="samsung_accent">#4CAF50</color>
+    <color name="samsung_dark_bg">#1C1C1E</color>
+    <color name="samsung_dark_surface">#2A2A2C</color>
+    
+    <!-- Bottom navigation colors -->
+    <color name="bottom_nav_item_color">@color/samsung_primary</color>
 </resources>
