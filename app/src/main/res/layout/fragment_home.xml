@@ -19,7 +19,8 @@
             android:layout_height="?attr/actionBarSize"
             app:title="@string/my_todo_lists"
             app:titleTextColor="@color/samsung_on_surface"
-            app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineSmall" />
+            app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+            app:menu="@menu/home_menu" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

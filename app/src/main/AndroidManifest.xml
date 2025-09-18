@@ -18,5 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.schedule.ui.create.CreateTodoActivity"
+            android:exported="false"
+            android:parentActivityName="com.example.schedule.MainActivity" />
     </application>
 </manifest>
